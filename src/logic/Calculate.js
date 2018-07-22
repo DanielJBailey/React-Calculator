@@ -18,6 +18,7 @@ export default function Calculate(obj, buttonName) {
         }
     }
 
+    //DELETE BUTTON
     if(buttonName === "DEL") {
         //get current input string
         let newInput = obj.input;
@@ -27,6 +28,17 @@ export default function Calculate(obj, buttonName) {
         return {
             input: newInput
         };
+    }
+
+    //SQUARE ROOT BUTTON
+    if(buttonName === "√") {
+        let number = obj.input;
+        let square = Math.sqrt(number).toPrecision(3);
+
+        return {
+            input: square,
+            result: square
+        }
     }
 
 
