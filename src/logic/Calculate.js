@@ -20,14 +20,20 @@ export default function Calculate(obj, buttonName) {
 
     //DELETE BUTTON
     if(buttonName === "DEL") {
+        console.log(obj);
         //get current input string
         let newInput = obj.input;
-        //remove last character from string
-        newInput = newInput.substring(0, newInput.length -1);
-        //return new string once last character has been removed
-        return {
-            input: newInput
-        };
+        if(newInput.length === 0) {
+            //Do nothing because it is empty
+        } else {
+            //remove last character from string
+            newInput = newInput.substring(0, newInput.length -1);
+            //return new string once last character has been removed
+            return {
+                input: newInput
+            };
+        }
+        
     }
 
     //SQUARE ROOT BUTTON
@@ -38,6 +44,17 @@ export default function Calculate(obj, buttonName) {
         return {
             input: square,
             result: square
+        }
+    }
+
+    //PERCENTAGE BUTTON
+    if(buttonName === "%") {
+        let number = obj.input;
+        let percent = number /100;
+        
+        return {
+            input: percent,
+            result: percent
         }
     }
 
