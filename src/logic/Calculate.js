@@ -20,41 +20,40 @@ export default function Calculate(obj, buttonName) {
 
     //DELETE BUTTON
     if(buttonName === "DEL") {
-        console.log(obj);
-        //get current input string
-        let newInput = obj.input;
-        if(newInput.length === 0) {
-            //Do nothing because it is empty
-        } else {
-            //remove last character from string
-            newInput = newInput.substring(0, newInput.length -1);
-            //return new string once last character has been removed
+        if(obj.input.length > 0) {
+            //get current input
+            let number = obj.input;
+            //remove last digit from string
+            number = number.substring(0, number.length - 1);
+            //return new number
             return {
-                input: newInput
-            };
+                input: number
+            }
         }
-        
     }
 
     //SQUARE ROOT BUTTON
     if(buttonName === "√") {
-        let number = obj.input;
-        let square = Math.sqrt(number).toPrecision(3);
-
-        return {
-            input: square,
-            result: square
+        if(obj.input.length > 0) {
+            let number = obj.input;
+            let square = Math.sqrt(number).toPrecision(3);
+            return {
+                input: square,
+                result: square
+            }
         }
     }
 
     //PERCENTAGE BUTTON
     if(buttonName === "%") {
-        let number = obj.input;
-        let percent = number /100;
-        
-        return {
-            input: percent,
-            result: percent
+        if(obj.input.length > 0) {
+            let number = obj.input;
+            let percent = number /100;
+            
+            return {
+                input: percent,
+                result: percent
+            }
         }
     }
 

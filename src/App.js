@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    //console.log(this.state);
+    console.log(this.state);
   }
 
   handleClick = (buttonName) => {
