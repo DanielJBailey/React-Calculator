@@ -1,13 +1,25 @@
 import React from 'react';
 import '../styles/Button.css';
 
-const Button = (props) => {
+class Button extends React.Component {
 
-    return(
-    <div>
-        <button className="button" id={props.id}>{props.name}</button>
-    </div>
-    );
+
+    handleClick = () => {
+        this.props.clickHandler(this.props.name);
+    };
+
+    render() {
+        return(
+            <div>
+                <button className="button" id={this.props.id} onClick={this.handleClick}>
+                    {this.props.name}
+                </button>
+            </div>
+        );
+    }
+    
+
+    
     
 };
 
