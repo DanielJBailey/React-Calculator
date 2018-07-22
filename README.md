@@ -17,4 +17,4 @@ A simple calculator created using React. The goal for this calculator is to allo
 
 ## Actual Screenshots
 
-<img src="https://i.gyazo.com/c56cc35e9bb46add2f6a104d64de1186.png" width="100px">
+<img src="https://i.gyazo.com/c56cc35e9bb46add2f6a104d64de1186.png" width="100%">
