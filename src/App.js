@@ -8,15 +8,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      result:  0,
-      input:  [],
-      calc: []
+      result: 0,
+      input:  []
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate() {
-    console.log(this.state);
+  console.log(this.state);
   }
 
   handleClick = (buttonName) => {

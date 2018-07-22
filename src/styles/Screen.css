@@ -19,12 +19,14 @@
     align-items: flex-end;
     padding: 0 30px;
     overflow-x: hidden;
+    white-space: nowrap;
 }
 
 .input {
     color: white;
     font-size: 45px;
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .ticker {
