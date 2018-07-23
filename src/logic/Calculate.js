@@ -8,7 +8,8 @@ export default function Calculate(obj, buttonName) {
         return {
             result:  0,
             input:  [],
-            calc: []
+            calc: [],
+            done: false
         };
     }
 
@@ -144,13 +145,19 @@ export default function Calculate(obj, buttonName) {
     if(buttonName === ".") {
         let input = obj.input;
         if(input.length > 0) {
-            if(!input.includes(".")) {
-                return {
-                    input: obj.input + "."
+            if(!LastOperator(input)) {
+                if(!input.includes(".")) {
+                    return {
+                        input: obj.input + "."
+                    }
                 }
             }
         }
     }
 
+    //EQUALS BUTTON
+    if(buttonName === "=") {
+
+    }
 
 };

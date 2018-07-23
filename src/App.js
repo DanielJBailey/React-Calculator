@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="Calculator">
-        <Screen input = {this.state.input} result={this.state.result} calc={this.state.calc}/>
+        <Screen input = {this.state.input} result={this.state.result} calc={this.state.calc} done={this.state.done}/>
         <ButtonContainer clickHandler = {this.handleClick}/>
       </div>
     );
