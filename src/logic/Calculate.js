@@ -87,14 +87,14 @@ export default function Calculate(obj, buttonName) {
             case "x":
                 if(LastOperator(input)) {
                     input = "";
-                    input += "x";
+                    input += "*";
                     return {
                         input: input
                     }
                 } else if(!LastOperator(input)) {
                     calc += input;
                     input = "";
-                    input += "x"
+                    input += "*"
                     return {
                         input: input,
                         calc: calc
@@ -157,7 +157,27 @@ export default function Calculate(obj, buttonName) {
 
     //EQUALS BUTTON
     if(buttonName === "=") {
-
+        let calc = obj.calc;
+        let input = obj.input;
+        let result = obj.result;
+        calc += input;
+        try {
+            result = eval(calc); 
+            if(result.toString().length > 12) {
+                result = result.toPrecision(5);
+            }
+        } catch (e) {
+            if (e instanceof SyntaxError) {
+                return {
+                   result: 'Error' 
+                }
+            }
+        }
+        return {
+            input: '',
+            calc: calc,
+            result: result
+        }
     }
 
 };
