@@ -9,13 +9,14 @@ class App extends Component {
     super(props);
     this.state = {
       result: 0,
-      input:  []
+      input:  [],
+      calc: []
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate() {
-  console.log(this.state);
+    console.log(this.state);
   }
 
   handleClick = (buttonName) => {
@@ -27,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="Calculator">
-        <Screen input = {this.state.input} result={this.state.result}/>
+        <Screen input = {this.state.input} result={this.state.result} calc={this.state.calc}/>
         <ButtonContainer clickHandler = {this.handleClick}/>
       </div>
     );

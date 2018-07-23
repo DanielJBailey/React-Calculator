@@ -54,7 +54,6 @@ export default function Calculate(obj, buttonName) {
     //Numeric inputs
     //test if button is numeric
     if(!isNaN(buttonName)) {
-        //return updated string
         return {
             input: obj.input + buttonName
         }
@@ -64,75 +63,92 @@ export default function Calculate(obj, buttonName) {
     if(Operator(buttonName) && obj.input.length !== 0) {
         //get user input
         let input = obj.input;
+        let calc = obj.calc;
 
         switch(buttonName) {
             case "/":
-                //if last operator includes operator
-                if(LastOperator(input)){
-                    //remove operator from last position
-                    input = input.substring(0, input.length - 1);
+                if(LastOperator(input)) {
+                    input = "";
+                    input += "/";
                     return {
-                        //append new operator to string
-                        input: input + "/"
+                        input: input
                     }
-                //if string doesn't contain operator add operator
-                } else if (!LastOperator(input)) {
+                } else if(!LastOperator(input)) {
+                    calc += input;
+                    input = "";
+                    input += "/"
                     return {
-                        input: input + "/"
+                        input: input,
+                        calc: calc
                     }
                 }
                 break;
             case "x":
-                //if last operator includes operator
-                if(LastOperator(input)){
-                    //remove operator from last position
-                    input = input.substring(0, input.length - 1);
+                if(LastOperator(input)) {
+                    input = "";
+                    input += "x";
                     return {
-                        //append new operator to string
-                        input: input + "x"
+                        input: input
                     }
-                //if string doesn't contain operator add operator
-                } else if (!LastOperator(input)) {
+                } else if(!LastOperator(input)) {
+                    calc += input;
+                    input = "";
+                    input += "x"
                     return {
-                        input: input + "x"
+                        input: input,
+                        calc: calc
                     }
                 }
                 break;
             case "-":
-                //if last operator includes operator
-                if(LastOperator(input)){
-                    //remove operator from last position
-                    input = input.substring(0, input.length - 1);
+                if(LastOperator(input)) {
+                    input = "";
+                    input += "-";
                     return {
-                        //append new operator to string
-                        input: input + "-"
+                        input: input
                     }
-                //if string doesn't contain operator add operator
-                } else if (!LastOperator(input)) {
+                } else if(!LastOperator(input)) {
+                    calc += input;
+                    input = "";
+                    input += "-"
                     return {
-                        input: input + "-"
+                        input: input,
+                        calc: calc
                     }
                 }
                 break;
             case "+":
-                //if last operator includes operator
-                if(LastOperator(input)){
-                    //remove operator from last position
-                    input = input.substring(0, input.length - 1);
+                if(LastOperator(input)) {
+                    input = "";
+                    input += "+";
                     return {
-                        //append new operator to string
-                        input: input + "+"
+                        input: input
                     }
-                //if string doesn't contain operator add operator
-                } else if (!LastOperator(input)) {
+                } else if(!LastOperator(input)) {
+                    calc += input;
+                    input = "";
+                    input += "+"
                     return {
-                        input: input + "+"
+                        input: input,
+                        calc: calc
                     }
                 }
                 break;
             default:
                 //don't do anything
                 break;
+        }
+    }
+
+    //PERIOD BUTTON
+    if(buttonName === ".") {
+        let input = obj.input;
+        if(input.length > 0) {
+            if(!input.includes(".")) {
+                return {
+                    input: obj.input + "."
+                }
+            }
         }
     }
 
